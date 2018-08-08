@@ -13,7 +13,7 @@ previous_block = blockchain[0]
 max_blocks = 20
 
 if __name__ == "__main__":
-    print("Tinycoin server started ...!")
+    print("Tinycoin server started ...!\n")
     for i in range(0, max_blocks):
         new_block = BlockGenerator(previous_block).next()
         blockchain.append(new_block)
