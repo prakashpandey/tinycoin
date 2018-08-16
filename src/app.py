@@ -19,9 +19,6 @@ previous_block = blockchain[0]
 # A completely random address of the owner of this node
 miner_address = "ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d"
 
-# Max num of blocks to be written to initial test network
-max_blocks = 20
-
 # Transactions that this node is doing
 nodes_transactions = []
 
