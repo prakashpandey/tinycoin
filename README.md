@@ -1,4 +1,4 @@
-# tinycoin
+# Tinycoin
 
 This project is created to learn blockchain by creating a small blockchain and it's own coin. 
 
