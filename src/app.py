@@ -10,6 +10,7 @@ from flask import Flask
 from flask import request
 import json
 import utils
+import os
 
 node = Flask(__name__)
 
@@ -24,8 +25,7 @@ miner_address = "ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d"
 nodes_transactions = []
 
 # Link of peer nodes
-peer_node = ['192.168.1.1:8080', '192.168.1.1:8081']
-
+peer_nodes = None
 # If we are mining or not
 mining = True 
 
@@ -60,7 +60,7 @@ def get_blocks():
 
 def find_new_chains():
     other_chains = []
-    for node_url in peer_node:
+    for node_url in peer_nodes:
         if mock:
             # mock call
             chain = get_blocks()
@@ -126,4 +126,12 @@ def mine():
 
 if __name__ == "__main__":
     print("Tinycoin server started ...!\n")
-    node.run()
+    
+    peers = os.getenv("PEERS", None)
+    if(peers):
+        peer_nodes = peers.split(",")
+    else:
+        peer_nodes = []
+    host = os.getenv("HOST", "0.0.0.0")
+    port = os.getenv("PORT", 5000)
+    node.run(host = host, port = port)
