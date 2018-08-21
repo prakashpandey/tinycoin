@@ -3,7 +3,7 @@
 # Define environment variables
 HOST="0.0.0.0"
 PORT=5000
-PEERS="192.168.1.11,192.168.1.12"
+PEERS="192.168.1.11:5000,192.168.1.12:5000"
 
 # Export environment variables
 echo "Exporting HOST=$HOST"
@@ -15,4 +15,5 @@ export PEERS=$PEERS
 
 # Start application
 echo "Starting application.... "
-python src/app.py
+# python src/app.py
+python src/test.py
