@@ -21,7 +21,7 @@ You can set the values of following environment variables according to your need
 
 - `PORT=5000`
 
-- `PEERS="192.168.1.11,192.168.1.12"`
+- `PEERS="192.168.1.11:5000,192.168.1.12:5000"`
 
 # Project Screenshot 
 
