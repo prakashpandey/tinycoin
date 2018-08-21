@@ -2,6 +2,7 @@
 
 import datetime as date
 import genesis
+import block
 from block import Block, Data
 from generator import BlockGenerator
 from transaction import Transaction
@@ -33,28 +34,29 @@ mock = False
 
 @node.route("/transaction", methods=['POST'])
 def transaction():
-    transaction = request.get_json()
-    nodes_transactions.append(transaction)
+    transaction_received = request.get_json()
+    print(f"transaction_received: { transaction_received }")
+    transaction = Transaction(
+        transaction_received['from'], 
+        transaction_received['to'], 
+        transaction_received['amount']
+    )
+    
     # print transaction logs
     print("New Transaction")
-    print(f"From: { transaction['from'] }")
-    print(f"From: { transaction['to'] }")
-    print(f"Amount: { transaction['amount'] }\n")
-
-    return "Transaction submission successful\n"
+    print(f"From: { transaction_received['from'] }")
+    print(f"From: { transaction_received['to'] }")
+    print(f"Amount: { transaction_received['amount'] }\n")
+    
+    if(transaction.is_valid()):
+        nodes_transactions.append(transaction.to_json())
+        return "Transaction submission successful\n"
+    else:
+        return "Invalid transaction\n"
 
 @node.route("/blocks", methods=['GET'])
 def get_blocks():
-    chain_to_send = []
-    for block in blockchain:
-        transaction = {
-            'index': str(block.index),
-            'timestamp': str(block.timestamp),
-            'data': str(block.data),
-            'hash': str(block.hash)
-        }
-        chain_to_send.append(transaction)
-    return json.dumps(chain_to_send)
+    return json.dumps(blockchain)
 
 def find_new_chains():
     other_chains = []
@@ -67,6 +69,7 @@ def find_new_chains():
             chain = request.get(node_url + "/blocks").get_json()
         other_chains.append(chain)
     return other_chains
+
 
 def consensus():
     """
@@ -95,40 +98,32 @@ def proof_of_work(last_proof):
 
 @node.route("/mine", methods=['GET'])
 def mine():
-    last_block = blockchain[len(blockchain) - 1]
-    last_proof = last_block.data['proof-of-work']
+    last_block = block.get_block_obj(blockchain[len(blockchain) - 1])
+    last_proof = json.loads(last_block.data)['proof_of_work']
 
     # Find proof of work for the current block being mined
     proof = proof_of_work(last_proof)
 
     # Ones the miner found out the proof of work
     # the network rewards the miner by adding a transaction
-    nodes_transactions.append(Transaction("network", miner_address, 1).create())
+    nodes_transactions.append(Transaction("network", miner_address, 1).to_json())
 
     # Create a block
     new_block_data = Data(proof, nodes_transactions).create()
-    new_block_index = previous_block.index
-    last_block_hash = previous_block.hash
-    new_block_timestamp = date.datetime.now()
+    new_block_index = last_block.index + 1
+    last_block_hash = last_block.hash
+    new_block_timestamp = utils.get_string_datetime(date.datetime.now())
 
     # Empty the current transaction as it is already processed
     nodes_transactions[:] = []
     # Creating new block
     mined_block = Block(new_block_index, new_block_timestamp, new_block_data, last_block_hash)
-    blockchain.append(mined_block.hash)
+    blockchain.append(mined_block.to_json())
     # Broadcast to the world that we have mined
     return mined_block.to_json() + "\n"
     
 
 
-if __name__ == "__main1__":
+if __name__ == "__main__":
     print("Tinycoin server started ...!\n")
     node.run()
-    # for i in range(0, max_blocks):
-    #     new_block = BlockGenerator(previous_block).next()
-    #     blockchain.append(new_block)
-    #     previous_block = new_block
-
-    #     # Broadcast the newly added block to the world
-    #     print(f"Block { new_block.index } has been added to the blockchain!")
-    #     print(f"Hash: { new_block.hash }\n")

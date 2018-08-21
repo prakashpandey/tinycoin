@@ -1,6 +1,7 @@
 # Block class
 
 import hashlib as hasher
+import json
 
 class Data(object):
     """
@@ -21,10 +22,11 @@ class Data(object):
         """
             Returns block data
         """
-        return {
+        data = {
             "proof_of_work": self.proof_of_work,
             "transactions": list(self.transactions)
         }
+        return json.dumps(data)
     
 
 class Block(object):
@@ -49,12 +51,26 @@ class Block(object):
         return sha.hexdigest()
     
     def to_json(self):
-        return str({
+        b = {
             "index": self.index,
             "timestamp": self.timestamp,
             "data": self.data,
             "hash": self.hash
-        })
+        }
+        return str(json.dumps(b))
+
+
+def get_block_obj(block):
+    """
+        block(str): represent the block data in string format
+        return the Block() object
+    """
+    b = json.loads(block)
+    index = b['index']
+    timestamp = b['timestamp']
+    data = b['data']
+    hash = b['hash'] 
+    return Block(index, timestamp, data, hash)
 
 if __name__ == "__main__":
     b = Block(1, "2018-10-2025", "this is a data", "2233cdd-44dffd-33443dd-ddd332w")

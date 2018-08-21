@@ -12,5 +12,5 @@ class BlockGenerator(object):
         self.last_block_hash = last_block.hash
     
     def next(self):
-        
+            
         return Block(self.index, self.timestamp, self.data, self.last_block_hash)
