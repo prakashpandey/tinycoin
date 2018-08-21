@@ -15,5 +15,4 @@ export PEERS=$PEERS
 
 # Start application
 echo "Starting application.... "
-# python src/app.py
-python src/test.py
+python src/app.py
