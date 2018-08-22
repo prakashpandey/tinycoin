@@ -8,6 +8,8 @@ from generator import BlockGenerator
 from transaction import Transaction
 from flask import Flask
 from flask import request
+import requests
+
 import json
 import utils
 import os
@@ -25,12 +27,40 @@ miner_address = None
 nodes_transactions = []
 
 # Link of peer nodes
-peer_nodes = None
+peer_nodes = set()
 # If we are mining or not
 mining = True 
 
 # Mock the rest request
 mock = False
+
+@node.route("/peers", methods=['GET'])
+def peer():
+    """
+        Returns peers of this node
+    """
+    return json.dumps(list(peer_nodes))
+
+@node.route("/connect_to_peers_of_peers", methods=['GET'])
+def connect_to_peers_of_peers():
+    """
+        Find all nodes connected to the peers of this node
+    """
+    peers = []
+    for peer in peer_nodes:
+        try:
+            response = requests.get(peer + "/peers").content
+            peers_of_peer = json.loads(response)
+            peers.extend(peers_of_peer)
+        except Exception as e:
+            print(f"__ERROR__ while trying to find peers of a peer. { str(e) }")
+    # remove the self node
+    this_node = os.getenv("HOST", "127.0.0.1") + ":" + os.getenv("PORT", 5000)
+    while this_node in peers:
+        peers.remove(this_node)
+    # update the current peers list
+    peer_nodes.update(peers)
+    return json.dumps(list(peer_nodes))
 
 @node.route("/transaction", methods=['POST'])
 def transaction():
@@ -68,9 +98,9 @@ def find_new_chains():
         else:
             # real call
             try:
-                chain = request.get(node_url + "/blocks").get_json()
+                chain = json.loads(requests.get(node_url + "/blocks").content)
             except Exception as e:
-                print(f"__ERROR__ while trying to find new seeds{ e.__str__() }")
+                print(f"__ERROR__ while trying to find new seeds. { e.__str__() }")
         other_chains.append(chain)
     return other_chains
 
@@ -104,6 +134,10 @@ def proof_of_work(last_proof):
 
 @node.route("/mine", methods=['GET'])
 def mine():
+    # Return if no transaction is available to mine
+    if not nodes_transactions:
+        return "Transaction is empty, noting to mine."
+    
     last_block = block.get_block_obj(blockchain[len(blockchain) - 1])
     last_proof = json.loads(last_block.data)['proof_of_work']
 
@@ -128,19 +162,16 @@ def mine():
     # Broadcast to the world that we have mined
     return mined_block.to_json() + "\n"
     
-
-
 if __name__ == "__main__":
     print("Tinycoin server started ...!\n")
     miner_address = os.getenv("MINER_ADDRESS", None)
     if(not miner_address):
-        print("Can not start application as valid miner address not found")
-
+        print("Can not start application as valid miner address is not found")
+        # exit the system with error
+        exit(1)
     peers = os.getenv("PEERS", None)
     if(peers):
-        peer_nodes = peers.split(",")
-    else:
-        peer_nodes = []
-    host = os.getenv("HOST", "0.0.0.0")
+        peer_nodes.update(peers.split(","))
+    host = os.getenv("HOST", "127.0.0.1")
     port = int(os.getenv("PORT", 5000))
     node.run(host = host, port = port)
