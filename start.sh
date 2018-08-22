@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define environment variables
-HOST="127.0.0.1"
+HOST="http://127.0.0.1"
 PORT=5000
 PEERS="http://127.0.0.1:5001"
 MINER_ADDRESS="ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d"
