@@ -42,6 +42,7 @@ You can set the values of following environment variables according to your need
             "amount": 2
         }
     ```
+- Headers: `Content-Type=application/json`
 - API response `Transaction submission successful` or `Transaction unsuccessful`
 
 ##### Start mining
