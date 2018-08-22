@@ -97,6 +97,19 @@ You can set the values of following environment variables according to your need
 
 - API response `["http://127.0.0.1:5002", "http://127.0.0.1:5000"]`
 
+# What more can be done?
+
+The only aim creating this project is to learn and explore about blockchain.
+Currently the consensus and proof of work algorithms are very simple. There is scope of improving these algorithm.
+
+##### Future updates
+
+- A wallet client 
+
+- Update proof of work and consensus algorithm
+
+- A valid miner address validater
+
 # Project Screenshot 
 
 ![Screenshot](media/screenshot-1.png)
