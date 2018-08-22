@@ -81,6 +81,22 @@ You can set the values of following environment variables according to your need
 
 - API response `Consensus successfully done`
 
+##### Get peers of a node
+
+- `Method = Get`
+
+- `Url = localhost:5000/peers`
+
+- API response `["http://127.0.0.1:5001", "http://127.0.0.1:5002"]`
+
+##### Connect to all peers of peers
+
+- `Method = Get`
+
+- `Url = localhost:5000/connect_to_peers_of_peers`
+
+- API response `["http://127.0.0.1:5002", "http://127.0.0.1:5000"]`
+
 # Project Screenshot 
 
 ![Screenshot](media/screenshot-1.png)
