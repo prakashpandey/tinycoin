@@ -13,20 +13,32 @@ If you are running other python versions, this project can be ported to other py
 
 - `cd tinycoin`
 
+#### '.*NIX' based systems
+
 - `./start.sh`
 
+#### Windows system
+
+- set `HOST`, `PORT`, `PEERS` and `MINER_ADDRESS` environment variables. 
+  Follow `Configuration` section for more details.
+
+- python src/app.py
+
 By default the application will run on port `5000`
+
 
 # Configuration
 
 Open file `start.sh`. 
 You can set the values of following environment variables according to your needs.
 
-- `HOST="0.0.0.0"`
+- `HOST="http://127.0.0.1"`
 
 - `PORT=5000`
 
-- `PEERS="192.168.1.11:5000,192.168.1.12:5000"`
+- `PEERS="http://192.168.1.11:5000,http://192.168.1.12:5000"`
+
+- `MINER_ADDRESS="ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d"`
 
 # API'S
 
