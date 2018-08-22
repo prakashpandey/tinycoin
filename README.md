@@ -2,6 +2,11 @@
 
 This project is created to learn blockchain by creating a small blockchain and it's own coin. 
 
+# Prerequisite
+- Python >= 3.6 
+
+If you are running other python versions, this project can be ported to other python versions with small syntax changes.
+
 # How to run?
 
 - `git clone https://github.com/prakashpandey/tinycoin`
