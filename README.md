@@ -13,9 +13,14 @@ If you are running other python versions, this project can be ported to other py
 
 - `cd tinycoin`
 
+- `pip install -r requirements.txt` or `pip install -r requirements.txt` based on your `pip` version
+
+
 #### '.*NIX' based systems
 
 - `./start.sh`
+
+Note: If your environment uses `python3` instead of `python` then edit the `start.sh` script.
 
 #### Windows system
 

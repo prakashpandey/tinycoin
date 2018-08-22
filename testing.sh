@@ -1,3 +1,5 @@
+# Testing script can be used to deploy multiple nodes on same machine in different ports
+
 # Node 1
 # PORT=5000
 # PEERS="http://127.0.0.1:5001"
