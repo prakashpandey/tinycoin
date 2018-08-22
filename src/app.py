@@ -61,16 +61,20 @@ def get_blocks():
 def find_new_chains():
     other_chains = []
     for node_url in peer_nodes:
+        chain = None
         if mock:
             # mock call
             chain = get_blocks()
         else:
             # real call
-            chain = request.get(node_url + "/blocks").get_json()
+            try:
+                chain = request.get(node_url + "/blocks").get_json()
+            except Exception as e:
+                print(f"__ERROR__ while trying to find new seeds{ e.__str__() }")
         other_chains.append(chain)
     return other_chains
 
-
+@node.route("/consensus", methods=['GET'])
 def consensus():
     """
         A simple consensus algorithm
@@ -85,6 +89,8 @@ def consensus():
     global blockchain
     if(len(longest_chain) > len(blockchain)):
         blockchain = longest_chain
+    
+    return "Consensus successfully done"
 
 def proof_of_work(last_proof):
     """

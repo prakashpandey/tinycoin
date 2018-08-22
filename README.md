@@ -55,6 +55,14 @@ You can set the values of following environment variables according to your need
 
 - API response `Blockchain in JSON format`
 
+##### Consensus
+
+- `Method = Get`
+
+- `Url = localhost:5000/consensus`
+
+- API response `Consensus successfully done`
+
 # Project Screenshot 
 
 ![Screenshot](media/screenshot-1.png)
