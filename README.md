@@ -23,6 +23,37 @@ You can set the values of following environment variables according to your need
 
 - `PEERS="192.168.1.11:5000,192.168.1.12:5000"`
 
+# API'S
+
+##### Create a transaction
+
+- `Method = Post`
+- `Url = 127.0.0.1:5000/transaction`
+- Body ```
+        {
+            "from": "71238uqirbfh894-random-public-key-a-alkjdflakjfewn204ij",
+            "to": "ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d",
+            "amount": 2
+        }
+    ```
+- API response `Transaction submission successful` or `Transaction unsuccessful`
+
+##### start mining
+
+- `Method = Get`
+
+- `Url = localhost:5000/mine`
+
+- API response `Mined block in JSON format`
+
+##### start mining
+
+- `Method = Get`
+
+- `Url = localhost:5000/blocks`
+
+- API response `Blockchain in JSON format`
+
 # Project Screenshot 
 
 ![Screenshot](media/screenshot-1.png)
