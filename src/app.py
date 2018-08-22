@@ -19,7 +19,7 @@ blockchain = [genesis.create_genesis_block()]
 previous_block = blockchain[0]
 
 # A completely random address of the owner of this node
-miner_address = "ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d"
+miner_address = None
 
 # Transactions that this node is doing
 nodes_transactions = []
@@ -126,12 +126,15 @@ def mine():
 
 if __name__ == "__main__":
     print("Tinycoin server started ...!\n")
-    
+    miner_address = os.getenv("MINER_ADDRESS", None)
+    if(not miner_address):
+        print("Can not start application as valid miner address not found")
+
     peers = os.getenv("PEERS", None)
     if(peers):
         peer_nodes = peers.split(",")
     else:
         peer_nodes = []
     host = os.getenv("HOST", "0.0.0.0")
-    port = os.getenv("PORT", 5000)
+    port = int(os.getenv("PORT", 5000))
     node.run(host = host, port = port)
