@@ -29,7 +29,8 @@ You can set the values of following environment variables according to your need
 
 - `Method = Post`
 - `Url = 127.0.0.1:5000/transaction`
-- Body ```
+- Body 
+    ```
         {
             "from": "71238uqirbfh894-random-public-key-a-alkjdflakjfewn204ij",
             "to": "ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d",
@@ -38,7 +39,7 @@ You can set the values of following environment variables according to your need
     ```
 - API response `Transaction submission successful` or `Transaction unsuccessful`
 
-##### start mining
+##### Start mining
 
 - `Method = Get`
 
@@ -46,7 +47,7 @@ You can set the values of following environment variables according to your need
 
 - API response `Mined block in JSON format`
 
-##### start mining
+##### Get blocks
 
 - `Method = Get`
 
