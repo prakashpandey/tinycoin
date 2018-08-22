@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Define environment variables
-HOST="0.0.0.0"
+HOST="127.0.0.1"
 PORT=5000
-PEERS="192.168.1.11:5000,192.168.1.12:5000"
+PEERS="http://127.0.0.1:5001"
 MINER_ADDRESS="ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d"
 
 # Export environment variables
