@@ -124,5 +124,5 @@ This learning project is created just for learning and based on open blog articl
 
 # LICENSE
 
-GPL V3, please visit ![LICENSE](LICENSE.md) for more information.
+GPL V3, please visit [LICENSE](LICENSE.md) for more information.
 
