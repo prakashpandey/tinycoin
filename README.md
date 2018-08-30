@@ -48,7 +48,7 @@ You can set the values of following environment variables according to your need
 # Create local test network
 
 Blockchain is all about distribute network where one connect with different `peers` and exchange data on regular bases.
-While developement you will probabily not have a group of distributed peers with whome you may want to connect and exchange
+During developement, you will probabily not have a group of distributed peers with whome you may want to connect and exchange
 data.
 
 To solve this problem, `testing.sh` script will help you run multiple blockchain instance on different `ports` on the same machine. Open the file `testing.sh` and edit it according to your needs.
