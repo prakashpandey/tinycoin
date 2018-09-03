@@ -7,6 +7,7 @@ LABEL MAINTAINER="https://github.com/prakashpandey"
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y  software-properties-common && \
+    apt-get install -y  git && \
     apt install python3-pip -y && \
     apt-get clean -y
 
