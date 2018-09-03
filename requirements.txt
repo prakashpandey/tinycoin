@@ -1,4 +1,4 @@
 # This application requires these dependencies
 
 requests
-flask=0.12.1
+flask==0.12.1
