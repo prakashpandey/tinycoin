@@ -13,7 +13,7 @@ If you are running other python versions, this project can be ported to other py
 
 - `cd tinycoin`
 
-- `pip install -r requirements.txt` or `pip install -r requirements.txt` based on your `pip` version
+- `pip install -r requirement.txt` or `pip3 install -r requirement.txt` based on your `pip` version
 
 
 #### '.*NIX' based systems
@@ -45,9 +45,17 @@ You can set the values of following environment variables according to your need
 
 - `MINER_ADDRESS="ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d"`
 
+# Create local test network
+
+Blockchain is all about distribute network where one connect with different `peers` and exchange data on regular bases.
+During developement, you will probabily not have a group of distributed peers with whome you may want to connect and exchange
+data.
+
+To solve this problem, `testing.sh` script will help you run multiple blockchain instance on different `ports` on the same machine. Open the file `testing.sh` and edit it according to your needs.
+
 # API'S
 
-##### Create a transaction
+#### Create a transaction
 
 - `Method = Post`
 - `Url = 127.0.0.1:5000/transaction`
@@ -70,7 +78,7 @@ You can set the values of following environment variables according to your need
 
 - API response `Mined block in JSON format`
 
-##### Get blocks
+#### Get blocks
 
 - `Method = Get`
 
@@ -78,7 +86,7 @@ You can set the values of following environment variables according to your need
 
 - API response `Blockchain in JSON format`
 
-##### Consensus
+#### Consensus
 
 - `Method = Get`
 
@@ -94,7 +102,7 @@ You can set the values of following environment variables according to your need
 
 - API response `["http://127.0.0.1:5001", "http://127.0.0.1:5002"]`
 
-##### Connect to all peers of peers
+#### Connect to all peers of peers
 
 - `Method = Get`
 
@@ -121,4 +129,8 @@ Currently the consensus and proof of work algorithms are very simple. There is s
 
 # Resource
 This learning project is created just for learning and based on open blog articles on internet.
+
+# LICENSE
+
+GPL V3, please visit [LICENSE](LICENSE.md) for more information.
 
