@@ -18,4 +18,4 @@ export MINER_ADDRESS=$MINER_ADDRESS
 
 # Start application
 echo "Starting application.... "
-python src/app.py
+python3 src/app.py
