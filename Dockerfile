@@ -13,7 +13,7 @@ RUN apt-get update -y && \
 
 RUN git clone https://github.com/prakashpandey/tinycoin /home/tinycoin && \
     cd /home/tinycoin && \
-    pip3 install -r requirement.txt && \
+    pip3 install -r requirements.txt && \
     ./start.sh
 
 EXPOSE 5000
