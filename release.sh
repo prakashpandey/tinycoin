@@ -10,7 +10,7 @@ IMAGE=tinycoin
 git pull
 
 # bump version
-docker run --rm -v "$PWD":/home/tinycoin prakashpandey/tinycoin patch
+sudo docker run --rm -v "$PWD":/home/tinycoin prakashpandey/tinycoin patch
 version=`cat VERSION`
 echo "version: $version"
 # run build
@@ -23,4 +23,4 @@ git tag -a "$version" -m "version $version"
 git push
 git push --tags
 
-docker tag $USERNAME/$IMAGE:latest $USERNAME/$IMAGE:$version
+sudo docker tag $USERNAME/$IMAGE:latest $USERNAME/$IMAGE:$version
