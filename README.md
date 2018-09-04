@@ -69,7 +69,7 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 
 # API'S
 
-#### Get miner address
+#### 1. Get miner address
 
 - `Method = Get`
 
@@ -77,7 +77,7 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 
 - API response `Returns miner address`
 
-#### Update miner address
+#### 2. Update miner address
 
 - `Method = Post`
 - `Url = 127.0.0.1:5000/update_miner_address`
@@ -102,7 +102,7 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 - Headers: `Content-Type=application/json`
 - API response `Peer list updated` or `Failed while adding peer/peers. Error[empty peer list received]`
 
-#### Create a transaction
+#### 3. Create a transaction
 
 - `Method = Post`
 - `Url = 127.0.0.1:5000/transaction`
@@ -117,7 +117,7 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 - Headers: `Content-Type=application/json`
 - API response `Transaction submission successful` or `Transaction unsuccessful`
 
-##### Start mining
+##### 4. Start mining
 
 - `Method = Get`
 
@@ -125,7 +125,7 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 
 - API response `Mined block in JSON format`
 
-#### Get blocks
+#### 5. Get blocks
 
 - `Method = Get`
 
@@ -133,7 +133,7 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 
 - API response `Blockchain in JSON format`
 
-#### Consensus
+#### 6. Consensus
 
 - `Method = Get`
 
@@ -141,7 +141,7 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 
 - API response `Consensus successfully done`
 
-##### Get peers of a node
+##### 7. Get peers of a node
 
 - `Method = Get`
 
@@ -149,7 +149,7 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 
 - API response `["http://127.0.0.1:5001", "http://127.0.0.1:5002"]`
 
-#### Connect to all peers of peers
+#### 8. Connect to all peers of peers
 
 - `Method = Get`
 
