@@ -9,15 +9,17 @@ If you are running other python versions, this project can be ported to other py
 
 # How to run?
 
-## I am lazy, I want to setup very fast(docker way)
+#### 1. I am lazy, I want to setup very fast(docker way)
 
-- Pull the docker image: `sudo docker pull prakashpandey/tinycoin`
+- Pull the docker image: 
+`sudo docker pull prakashpandey/tinycoin`
 
-- Run the docker image: `sudo docker run -p 5000:5000 -d prakashpandey/tinycoin:1.0-stable`
+- Run the docker image: 
+`sudo docker run -p 5000:5000 -d prakashpandey/tinycoin:1.0-stable`
 
 That's it. You have successfully installed the `tinycoin` docker image.
 
-## I am a hacker, I will setup from scratch
+#### 2. I am a hacker, I will setup from scratch
 
 - `git clone https://github.com/prakashpandey/tinycoin`
 
