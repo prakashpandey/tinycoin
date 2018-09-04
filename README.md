@@ -13,11 +13,11 @@ If you are running other python versions, this project can be ported to other py
 
 - Pull the docker image: 
 
-`sudo docker pull prakashpandey/tinycoin`
+`sudo docker pull prakashpandey/tinycoin:1.2-stable`
 
 - Run the docker image: 
 
-`sudo docker run -p 5000:5000 -d prakashpandey/tinycoin:1.0-stable`
+`sudo docker run -p 5000:5000 -d prakashpandey/tinycoin:1.2-stable`
 
 That's it. You have successfully installed the `tinycoin` docker image.
 
