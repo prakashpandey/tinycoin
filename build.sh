@@ -6,4 +6,4 @@ set -ex
 USERNAME=prakashpandey
 # image name
 IMAGE=tinycoin
-sudo docker build -t $USERNAME/$IMAGE:latest .
+sudo docker build --no-cache -t $USERNAME/$IMAGE:latest .

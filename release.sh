@@ -16,11 +16,18 @@ echo "version: $version"
 # run build
 ./build.sh
 
-# tag it
-git add -A
-git commit -m "version $version"
+
+# use this if you are not using manual commit
+# git add -A
+# git commit -m "version $version"
+
+# git tag the latest version
 git tag -a "$version" -m "version $version"
 git push
 git push --tags
 
+# tag images
 sudo docker tag $USERNAME/$IMAGE:latest $USERNAME/$IMAGE:$version
+# push docker images(optional)
+sudo docker push $USERNAME/$IMAGE:latest 
+sudo docker push $USERNAME/$IMAGE:$version
