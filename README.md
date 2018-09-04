@@ -9,6 +9,16 @@ If you are running other python versions, this project can be ported to other py
 
 # How to run?
 
+## I am lazy, I want to setup very fast(docker way)
+
+- Pull the docker image: `sudo docker pull prakashpandey/tinycoin`
+
+- Run the docker image: `sudo docker run -p 5000:5000 -d prakashpandey/tinycoin:1.0-stable`
+
+That's it. You have successfully installed the `tinycoin` docker image.
+
+## I am a hacker, I will setup from scratch
+
 - `git clone https://github.com/prakashpandey/tinycoin`
 
 - `cd tinycoin`
@@ -126,6 +136,20 @@ Currently the consensus and proof of work algorithms are very simple. There is s
 # Project Screenshot 
 
 ![Screenshot](media/screenshot-1.png)
+
+# How to build your own tinycoin docker image(Optional)
+
+ - clone project: `git clone https://github.com/prakashpandey/tinycoin`
+
+- `cd tinycoin`
+
+- build docker image: `sudo docker build -t username/repo-name:tag .`
+
+# Some helpful docker commands(Optional)
+
+- List all docker images: `sudo docker image ls`
+
+- List all docker containers: `sudo docker container ls`
 
 # Resource
 This learning project is created just for learning and based on open blog articles on internet.
