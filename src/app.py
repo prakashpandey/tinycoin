@@ -46,7 +46,7 @@ def add_peers():
     """
         Add peers to this node
     """
-    peers = json.loads(request.get_json())
+    peers = json.loads(request.data)
     if(peers):
         peer_nodes.update(peers)
         return "Peer list updated"
