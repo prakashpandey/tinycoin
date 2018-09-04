@@ -172,6 +172,6 @@ if __name__ == "__main__":
     peers = os.getenv("PEERS", None)
     if(peers):
         peer_nodes.update(peers.split(","))
-    host = os.getenv("HOST", "http://127.0.0.1")
+    host = os.getenv("HOST", "127.0.0.1")
     port = int(os.getenv("PORT", 5000))
     node.run(host = host, port = port)
