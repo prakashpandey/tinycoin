@@ -34,12 +34,32 @@ mining = True
 # Mock the rest request
 mock = False
 
+@node.route("/get_miner_address", methods=['GET'])
+def get_miner_address():
+    """
+        Returns miner address
+    """
+    return miner_address
+
+@node.route("/update_miner_address", methods=['POST'])
+def update_miner_address():
+    """
+        Update miner address
+    """
+    address = request.get_json()['miner_address']
+    if(not address):
+        return "Can not update miner_address as valid miner address is not found"
+    else:
+        global miner_address
+        miner_address = address
+        return "Successfully updated miner address"
+
 @node.route("/peers", methods=['GET'])
 def peer():
     """
         Returns peers of this node
     """
-    return json.dumps(list(peer_nodes))
+    return json.dumps(list(peer_nodes)) 
 
 @node.route("/add_peers", methods=['POST'])
 def add_peers():

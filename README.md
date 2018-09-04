@@ -69,7 +69,26 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 
 # API'S
 
-#### Add peers to this node
+#### Get miner address
+
+- `Method = Get`
+
+- `Url = localhost:5000/get_miner_address`
+
+- API response `Returns miner address`
+
+#### Update miner address
+
+- `Method = Post`
+- `Url = 127.0.0.1:5000/update_miner_address`
+- Body 
+    ```
+        {
+            "miner_address": "ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d"
+        }
+    ```
+- Headers: `Content-Type=application/json`
+- API response `Successfully updated miner address` or `Can not update miner_address as valid miner address is not found`
 
 - `Method = Post`
 - `Url = 127.0.0.1:5000/add_peers`
