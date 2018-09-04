@@ -2,7 +2,14 @@
 
 This project is created to learn blockchain by creating a small blockchain and it's own coin. 
 
+# Current stable version 
+
+- `v1.5`
+
+To find the latest version please go to the `VERSION` file present at project's base directory 
+
 # Prerequisite
+
 - Python >= 3.6 
 
 If you are running other python versions, this project can be ported to other python versions with small syntax changes.
@@ -13,13 +20,16 @@ If you are running other python versions, this project can be ported to other py
 
 - Pull the docker image: 
 
-`sudo docker pull prakashpandey/tinycoin:1.2-stable`
+`sudo docker pull prakashpandey/tinycoin:1.5`
 
 - Run the docker image: 
 
-`sudo docker run -p 5000:5000 -d prakashpandey/tinycoin:1.2-stable`
+`sudo docker run -p 5000:5000 -d prakashpandey/tinycoin:1.5`
 
 That's it. You have successfully installed the `tinycoin` docker image.
+
+Note: Instead of version `1.5` you can also use version `latest` but it may not be stable one.
+      To find the latest version please go to the `VERSION` file present at project's base directory
 
 ### 2. I am a hacker, I will setup from scratch
 
@@ -58,6 +68,24 @@ You can set the values of following environment variables according to your need
 - `PEERS="http://192.168.1.11:5000,http://192.168.1.12:5000"`
 
 - `MINER_ADDRESS="ppdpp-dvfgf-fredgdsdf-gdsfgsd-35vr433-ee2eass4d"`
+
+
+# How to build your own tinycoin docker image(Optional)
+
+If you are intrested in building your own docker image please read this section otherwise you can skip this.
+
+ - clone project: `git clone https://github.com/prakashpandey/tinycoin`
+
+- `cd tinycoin`
+
+- build docker image: `sudo docker build -t username/repo-name:tag .`
+
+#### Some helpful docker commands(Optional)
+
+- List all docker images: `sudo docker image ls`
+
+- List all docker containers: `sudo docker container ls`
+
 
 # Create local test network
 
@@ -175,20 +203,6 @@ Currently the consensus and proof of work algorithms are very simple. There is s
 # Project Screenshot 
 
 ![Screenshot](media/screenshot-1.png)
-
-# How to build your own tinycoin docker image(Optional)
-
- - clone project: `git clone https://github.com/prakashpandey/tinycoin`
-
-- `cd tinycoin`
-
-- build docker image: `sudo docker build -t username/repo-name:tag .`
-
-# Some helpful docker commands(Optional)
-
-- List all docker images: `sudo docker image ls`
-
-- List all docker containers: `sudo docker container ls`
 
 # Resource
 This learning project is created just for learning and based on open blog articles on internet.
