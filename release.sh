@@ -10,7 +10,7 @@ IMAGE=tinycoin
 git pull
 
 # bump version
-sudo docker run --rm -v "$PWD":/home/tinycoin prakashpandey/tinycoin patch
+# sudo docker run --rm -v "$PWD":/home/tinycoin prakashpandey/tinycoin patch
 version=`cat VERSION`
 echo "version: $version"
 # run build
