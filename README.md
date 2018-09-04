@@ -69,6 +69,20 @@ To solve this problem, `testing.sh` script will help you run multiple blockchain
 
 # API'S
 
+#### Add peers to this node
+
+- `Method = Post`
+- `Url = 127.0.0.1:5000/add_peers`
+- Body 
+    ```
+        [
+            "http://192.168.1.11:5000",
+            "http://192.168.1.12:5000"
+        ]
+    ```
+- Headers: `Content-Type=application/json`
+- API response `Peer list updated` or `Failed while adding peer/peers. Error[empty peer list received]`
+
 #### Create a transaction
 
 - `Method = Post`

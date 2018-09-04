@@ -41,6 +41,18 @@ def peer():
     """
     return json.dumps(list(peer_nodes))
 
+@node.route("/add_peers", methods=['POST'])
+def add_peers():
+    """
+        Add peers to this node
+    """
+    peers = json.loads(request.get_json())
+    if(peers):
+        peer_nodes.update(peers)
+        return "Peer list updated"
+    else:
+        return "Failed while adding peer/peers. Error[empty peer list received]"
+
 @node.route("/connect_to_peers_of_peers", methods=['GET'])
 def connect_to_peers_of_peers():
     """
