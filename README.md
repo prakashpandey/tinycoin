@@ -4,9 +4,11 @@ This project is created to learn blockchain by creating a small blockchain and i
 
 # Current stable version 
 
-![Alt v1.6](https://img.shields.io/badge/release--1.6-ok-green.svg)(https://github.com/prakashpandey/tinycoin/releases/tag/1.6)
-![Alt v1.5](https://img.shields.io/badge/release--1.5-ok-green.svg)(https://github.com/prakashpandey/tinycoin/releases/tag/1.5)
-![Alt v1.2](https://img.shields.io/badge/release--1.2-ok-green.svg)(https://github.com/prakashpandey/tinycoin/releases/tag/v1.2)
+[![Alt v1.6](https://img.shields.io/badge/release--1.6-ok-green.svg)](https://github.com/prakashpandey/tinycoin/releases/tag/1.6)
+
+[![Alt v1.5](https://img.shields.io/badge/release--1.5-ok-green.svg)](https://github.com/prakashpandey/tinycoin/releases/tag/1.5)
+
+[![Alt v1.2](https://img.shields.io/badge/release--1.2-ok-green.svg)](https://github.com/prakashpandey/tinycoin/releases/tag/v1.2)
 
 To find the latest version please go to the `VERSION` file present at project's base directory 
 
