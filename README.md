@@ -4,7 +4,8 @@ This project is created to learn blockchain by creating a small blockchain and i
 
 # Current stable version 
 
-- [![version] (https://img.shields.io/badge/release--1.6-ok-green.svg)](https://github.com/prakashpandey/tinycoin)
+![Alt stable version](https://img.shields.io/badge/release--1.6-ok-green.svg)
+<img src="https://img.shields.io/badge/release--1.6-ok-green.svg">
 
 To find the latest version please go to the `VERSION` file present at project's base directory 
 
