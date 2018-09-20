@@ -20,15 +20,15 @@ If you are running other python versions, this project can be ported to other py
 
 - Pull the docker image: 
 
-`sudo docker pull prakashpandey/tinycoin:1.5`
+`sudo docker pull prakashpandey/tinycoin:1.6`
 
 - Run the docker image: 
 
-`sudo docker run -p 5000:5000 -d prakashpandey/tinycoin:1.5`
+`sudo docker run -p 5000:5000 -d prakashpandey/tinycoin:1.6`
 
 That's it. You have successfully installed the `tinycoin` docker image.
 
-Note: Instead of version `1.5` you can also use version `latest` but it may not be stable one.
+Note: Instead of version `1.6` you can also use version `latest` but it may not be stable one.
       To find the latest version please go to the `VERSION` file present at project's base directory
 
 ### 2. I am a hacker, I will setup from scratch
